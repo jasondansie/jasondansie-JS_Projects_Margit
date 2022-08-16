@@ -1,0 +1,6 @@
+make a program that ask the age of the user
+if age is less then 18, the text "too young" is printed
+if the age is less then 27, the text "Right age for military service" is display in console
+if the age is less then 41, the text "You are in reserve"
+if age is less then 55, "You are in the backup reserve"
+all other casses display "too aged"
