@@ -1,0 +1,8 @@
+make a program that ask about hourly salary and how many hours the user worked
+in one day. With this info, the program calculates the days salary.
+
+the salary calculates as follows
+
+-first 7 hours by hourly salary
+-next 2 hours by 50% extra
+rest of hours by 100%
