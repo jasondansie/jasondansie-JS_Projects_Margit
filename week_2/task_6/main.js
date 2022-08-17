@@ -9,7 +9,7 @@ function hourlySalary()
         console.log("Your daily salary is: " + dailySalary);
     } 
     else if(hoursWorked > 7 && hoursWorked < 10)
-    {     
+    {
         let newSalary = ((salary * 1.5) * 2 + dailySalary);
         console.log("Your daily salary is: " + newSalary);
     }
