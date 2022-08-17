@@ -15,9 +15,9 @@ function getRandomNumbers()
     }
     else if(num1 > 0 && num2 > 0 && num3 > 0)
     {
-        const sum = num1+num2+num3;
+        const sum = num1 + num2 + num3;
         console.log("The sum of your numbers are: " + sum);
-        const multiplyNum = num1*num2*num3;
+        const multiplyNum = num1 * num2 * num3;
         console.log("The multiplication of your numbers is: " + multiplyNum);
     }
     else
