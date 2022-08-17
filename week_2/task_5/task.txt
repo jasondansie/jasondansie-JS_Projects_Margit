@@ -1,0 +1,6 @@
+make a program that asks for one number from 
+the user.
+then find out if the number is positive and if the
+number is divisable by 2.
+message "number ... is even" is printed else "number ... is odd" 
+is printed.
