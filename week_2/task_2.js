@@ -12,7 +12,7 @@ something! //
 "Java" - "Script" // don't know - NaN
 " " + " "       // don't know - ' '
 " " + 0         // don't know - ' 0'
-true + true // don't know - 2
+true + true // don't know - 2   True = 1 Falese = 0
 true + false // don't know - 1
 false + true // don't know - 1
 false - true // don't know - 1
@@ -37,4 +37,6 @@ true != true  // don't know - false
 // "Go To Helsinki Business College," they said. "It'll Will Be "Fun"," they said.
 // by using the + sign:
 
-"Go To Helsinki Business College," + " they said. " + "It'll Will Be \"Fun\"," + "they said."
+"Go To Helsinki Business College," + " they said. " + "It" + "'" + "ll" + "Will Be" + '"' + "Fun" + '"' + ""," + "they said."
+
+`"Go To Helsinki Business College,"  they said. "It'll Will Be "Fun"," + they said.`
