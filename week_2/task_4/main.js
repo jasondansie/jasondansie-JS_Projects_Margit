@@ -2,13 +2,9 @@ function getRandomNumbers()
 {
     let num1, num2, num3;
 
-    num1 = promptForNumber("first");
-    num2 = promptForNumber("Second");
-    num3 = promptForNumber("Third");
-
-    num1 = parseInt(num1);
-    num2 = parseInt(num2);
-    num3 = parseInt(num3);
+    num1 = parseInt(promptForNumber("first"));
+    num2 = parseInt(promptForNumber("Second"));
+    num3 = parseInt(promptForNumber("Third"));
 
     if (num1 < 0 && num2 < 0 && num3 < 0) {
         console.log("Only Negatives");
