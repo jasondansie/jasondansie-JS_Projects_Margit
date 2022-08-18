@@ -10,8 +10,7 @@ function runLoop()
             else
             {
                 oneLiner += `${i} ${100 -i} `;
-            }                
-                            
+            }                                          
         }
     }
     console.log(oneLiner);
