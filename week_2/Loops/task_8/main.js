@@ -1,6 +1,5 @@
 function smallestNumber() 
 {
-
     let  numberCount = parseInt(prompt("How many numbers do you want to enter: "));
     let smallestNum = 0;
 

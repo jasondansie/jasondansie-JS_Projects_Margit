@@ -8,7 +8,6 @@ function getAvarage()
 
     do {
         const singleDigit = parseFloat(prompt(`Enter a digit: `));
-
         doContinue = askToContinue();
     
         if (doContinue == "y" || doContinue == "n") {
@@ -23,7 +22,6 @@ function getAvarage()
     } while (doContinue == "y" );
 
     numberAvarage = digitSum / numberCount;
-
     console.log(`There are ${numberCount} numbers, their total is ${digitSum} and their avarage is ${numberAvarage}.`)
 }
 

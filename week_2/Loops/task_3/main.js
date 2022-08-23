@@ -15,7 +15,7 @@ function avarageSpeed()
             const timeH = parseFloat(prompt("Enter the time in hours?"));
 
             let avgSpeed = distanceKm/timeH;  
-            console.log("The average speed is:", avgSpeed, "km.");
+            console.log("The average speed is:", avgSpeed, "km/h.");
         }
 
     } while (stopper != 0); 
