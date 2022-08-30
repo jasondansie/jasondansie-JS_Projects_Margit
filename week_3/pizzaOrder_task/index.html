@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro"/>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Mama's Yummy Pizza</title>
+</head>
+<body>
+    <main>
+        <section>
+            <div class="topHeading"><h1>Order Pizza Here</h1></div>
+            <div class="container">
+                <div class="hero-image"></div>               
+                <div class="content">
+                    <form>
+                        <h2>What is your name</h2>
+                        <input type="text" placeholder="enter your name" id="customerName">
+                        <div class="pizzaSize">
+                            <div class="psHeading"><h2>Select your Pizza Size</h2></div>
+                            
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="pizzaSize" id="for 2" value="7.5" oninput="getSizePrice(this.id, this.value)"><label for="for 2">For 2, the price is 7,50€</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="pizzaSize" id="for 4" value="10.5" oninput="getSizePrice(this.id, this.value)"><label for="for 4">For 4, the price is 10,50€</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="pizzaSize" id="for 6" value="12.5" oninput="getSizePrice(this.id, this.value)"><label for="for 6">For 6, the price is 12,50€</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="pizzaSize" id="for 8" value="15.5"  oninput="getSizePrice(this.id, this.value)"><label for="for 8">For 8, the price is 15,50€</label>
+                                </li>                        
+                                </ul>                                    
+                                    
+                        </div>
+                        <div class="pizzaToppings">
+                            <h2>Select your Toppings</h2>
+                            <h4>First 4 are free .50 for each one after</h4>
+                            <input type="checkbox" value="Pepperoni" id="topping1" oninput="getTopping(this.value)">
+                            <label for="topping1">Pepperoni</label>
+                            <input type="checkbox" value="Sausage" id="topping2" oninput="getTopping(this.value)">
+                            <label for="topping2">Sausage</label>
+                            <input type="checkbox" value="Salami" id="topping3" oninput="getTopping(this.value)">
+                            <label for="topping3">Salami</label>
+                            <input type="checkbox" value="Onion" id="topping4"oninput="getTopping(this.value)">
+                            <label for="topping4">Onion</label>
+                            <input type="checkbox" value="Olives" id="topping5"oninput="getTopping(this.value)">
+                            <label for="topping5">Olives</label>
+                            <input type="checkbox" value="Shrimp" id="topping6"oninput="getTopping(this.value)">
+                            <label for="topping6">Shrimp</label>
+                            <input type="checkbox" value="Tuna" id="topping7"oninput="getTopping(this.value)">
+                            <label for="topping7">Tuna</label>
+                            <input type="checkbox" value="Bell Pepper" id="topping8"oninput="getTopping(this.value)">
+                            <label for="topping8">Bell Pepper</label>
+                            <input type="checkbox" value="Ham" id="topping9"oninput="getTopping(this.value)">
+                            <label for="topping9">Ham</label>
+                            <input type="checkbox" value="Bacon" id="topping10"oninput="getTopping(this.value)">
+                            <label for="topping10">Bacon</label>
+                                        
+                        </div>
+                        <div class="pizzaDelivery">
+                            <h2>Select your Delivery</h2>
+                            <div class="selectDiv">
+                                <select name="pizzaShipping" id="pizzaShipping" oninput="getDeliveryPrice()">
+                                    <option value="5" name="home delivery">Home Deliver 5€</option>
+                                    <option value="0" name="eat in">Eat in</option>
+                                    <option value="0" name="pick up">Pick Up</option>
+                                </select>
+                            </div>                          
+                        </div>
+                    </form>
+                    <p id="Results"></p>
+                </div>
+            </div>
+            
+             
+        </section>
+    </main>
+    
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+* {
+    Margin: 0;
+    Padding: 0;
+    Box-sizing: boarder-box;
+    -webkit-font-smothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: Source Code Pro, serif;
+    font-size: 20px;
+}
+
+.topHeading {
+    text-align: center;
+
+}
+
+.psHeading {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.pizzaSize label {
+    margin-left: 10px;
+}
+
+.pizzaToppings {
+    margin-top: 40px;
+    background-color: beige;
+}
+
+.pizzaToppings h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.pizzaToppings h4 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.pizzaDelivery {
+    margin-top: 40px;
+}
+
+.pizzaDelivery h2 {
+    text-align: center;
+}
+
+.selectDiv {
+    margin-top: 15px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    display: flex;
+}
+
+.hero-image {
+    width: 50vw;
+    background: url(/week_3/pizzaOrder_task/images/pizza.gif) no-repeat fixed center center/cover;
+}
+
+.content {
+    width: 50vw;
+    padding: 2rem;
+}
+
+input,
+select,
+button {
+    font-family: inherit;
+    margin: 0.5rem, 0;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
