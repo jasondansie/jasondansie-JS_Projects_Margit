@@ -1,11 +1,37 @@
-const results = document.querySelector("#Results");
+const form = document.querySelector("form");
+const customer = document.querySelector("#customerName");
+const size = document.querySelectorAll("[name='pizzaSize']");
+const toppings = document.querySelectorAll (`input[type="checkbox"]`);
+const delivery = document.querySelector("#pizzadelivery");
 
-let toppingPrice = 0;
-let sizePrice = 0;
-let pizzaSize = "";
-let deliveryPrice = 0;
-let deliverType = "";
-let toppingCount = 0;
+const takeOrder = (e) =>{
+    e.preventDefault();
+
+    let customerName = customer.value;
+    let sizeResult = "";
+    let toppingResult = [];
+    let deliveryResult = delivery.options[delivery.selectedIndex].value;
+
+    size.forEach((item) => {
+        if (item.checked) {
+            sizeResult = item.value;
+        }
+    })
+
+    toppings.forEach((item) => {
+        if (item.checked) {
+            toppingResult.push(item.value);
+        }
+    })
+
+    console.log("button was pressed.");
+    console.log(customerName);
+    console.log(sizeResult);
+    console.log(toppingResult);
+    console.log(deliveryResult);
+}
+
+form.addEventListener("submit", takeOrder);
 
 const getTopping = (name) => {
     const count = document.querySelectorAll (`input[type="checkbox"]:checked`).length; 
@@ -59,38 +85,3 @@ const getDeliveryPrice = () => {
 setResults = () => {
     results.textContent = `You chose pizza ${pizzaSize} for $${sizePrice}, with ${toppingCount} toppings for $${toppingPrice} and ${deliverType} for $${deliveryPrice} This pirce of the pizza is +${sizePrice + toppingPrice + deliveryPrice} `;
 }
-
-const form = document.querySelector("form");
-const customer = document.querySelector("#customerName");
-const size = document.querySelectorAll("[name='pizzaSize']");
-const toppings = document.querySelectorAll (`input[type="checkbox"]`);
-const delivery = document.querySelector("#pizzadelivery");
-
-const takeOrder = (e) =>{
-    e.preventDefault();
-
-    let customerName = customer.value;
-    let sizeResult = "";
-    let toppingResult = [];
-    let deliveryResult = delivery.options[delivery.selectedIndex].value;
-
-    size.forEach((item) => {
-        if (item.checked) {
-            sizeResult = item.value;
-        }
-    })
-
-    toppings.forEach((item) => {
-        if (item.checked) {
-            toppingResult.push(item.value);
-        }
-    })
-
-    console.log("button was pressed.");
-    console.log(customerName);
-    console.log(sizeResult);
-    console.log(toppingResult);
-    console.log(deliveryResult);
-}
-
-form.addEventListener("submit", takeOrder);
