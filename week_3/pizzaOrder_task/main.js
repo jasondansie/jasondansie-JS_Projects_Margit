@@ -4,17 +4,24 @@ const size = document.querySelectorAll("[name='pizzaSize']");
 const toppings = document.querySelectorAll (`input[type="checkbox"]`);
 const delivery = document.querySelector("#pizzadelivery");
 
-const takeOrder = (e) =>{
-    e.preventDefault();
+const toppingResults = document.querySelector("#toppingResults");
+const priceResults = document.querySelector("#priceResults");
 
-    let customerName = customer.value;
-    let sizeResult = "";
-    let toppingResult = [];
-    let deliveryResult = delivery.options[delivery.selectedIndex].value;
+let customerName = "";
+let sizePrice = 0;
+let sizeText = "";
+let toppingResult = [];
+let toppingPrice = 0;
+let deliveryText = delivery.options[delivery.selectedIndex].value;
+let deliveryPrice = 0;
+let totalPrice = 0;
+
+const takeOrder = (e) => {
+    e.preventDefault();
 
     size.forEach((item) => {
         if (item.checked) {
-            sizeResult = item.value;
+            sizePrice = item.value;
         }
     })
 
@@ -24,22 +31,24 @@ const takeOrder = (e) =>{
         }
     })
 
-    console.log("button was pressed.");
-    console.log(customerName);
-    console.log(sizeResult);
-    console.log(toppingResult);
-    console.log(deliveryResult);
+    getTopping(toppingResult.length);
+
+    if (deliveryText == 'home delivery') { 
+        deliveryPrice += 5;
+    }
+
+    totalPrice = parseFloat(sizePrice) + parseFloat(toppingPrice) + parseFloat(deliveryPrice);
+    customerName = customer.value;
+
+    setResults();
+    form.reset();
 }
 
 form.addEventListener("submit", takeOrder);
 
-const getTopping = (name) => {
-    const count = document.querySelectorAll (`input[type="checkbox"]:checked`).length; 
-    const isChecked = document.getElementById("checkbox").checked;
+const getTopping = (toppingResult) => {
 
-    toppingCount = count;
-
-    switch (count) {
+    switch (toppingResult) {
         case 5:
             toppingPrice = 0.5;
             break;
@@ -59,29 +68,12 @@ const getTopping = (name) => {
             toppingPrice = 3;
             break;
         default:
-            break;
+            toppingPrice = 0;
+            break;a
      }
-
-    setResults();
-}
-
-const getSizePrice = (id, price) => {   
-    sizePrice = parseFloat(price);
-    pizzaSize = id;
-
-    setResults();
-}
-
-const getDeliveryPrice = () => {
-     
-    let deliveryElement = document.getElementById("pizzaShipping"); 
-    
-    deliveryPrice = parseFloat(deliveryElement.value);
-    deliverType = deliveryElement.options[deliveryElement.selectedIndex].text;
-
-    setResults();
 }
 
 setResults = () => {
-    results.textContent = `You chose pizza ${pizzaSize} for $${sizePrice}, with ${toppingCount} toppings for $${toppingPrice} and ${deliverType} for $${deliveryPrice} This pirce of the pizza is +${sizePrice + toppingPrice + deliveryPrice} `;
+    toppingResults.textContent = `Hello ${customerName}, your toppings are: ${toppingResult.join()}`;
+    priceResults.textContent = `You chose a pizza for $${sizePrice}, with ${toppingResult.length} toppings for $${toppingPrice} and ${deliveryText} for $${deliveryPrice} The pirce of the pizza is +${totalPrice} `;
 }
