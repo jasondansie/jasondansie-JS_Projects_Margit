@@ -13,75 +13,81 @@
 <body>
     <main>
         <section>
-            <h1>Welcome to the Insurance calculator</h1>
+            <h1 class="heading1">Welcome to the Insurance calculator</h1>
             <div class="main">
                 <form>
                     <h2>Please give us your name</h2>
                     <div>
                         <label for="customerName">Name</label>
-                        <input type="text" id="customerName">
+                        <input type="text" id="customerName" placeholder="Enter your name">
                     </div>
                     <h2>Please give us your age:</h2>
                     <div>
                         <label for="customerAge">Age</label>
-                        <input type="text" id="customerAge">
+                        <input type="text" id="customerAge" placeholder="Enter your age">
                     </div>
                     <h2>Please check which health problems you have (if any)</h2>
                     <div class="checkbox">
                         <div>
-                            <input type="checkbox" id="Hypertension">
+                            <input type="checkbox" id="Hypertension" name="preCondition">
                             <label for="Hypertension">Hypertension</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="Blood sugar">
+                            <input type="checkbox" id="Blood sugar" name="preCondition">
                             <label for="Blood sugar">Blood sugar</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="Overweight">
+                            <input type="checkbox" id="Overweight" name="preCondition">
                             <label for="Overweight">Overweight</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="eye sight">
+                            <input type="checkbox" id="eye sight" name="preCondition">
                             <label for="eye sight">Poor eye sight</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="Hypertension">
+                            <input type="checkbox" id="Hypertension" name="preCondition">
                             <label for="Hypertension">Hypertension</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="Hypertension">
-                            <label for="Hypertension">Hypertension</label>
+                            <input type="checkbox" id="Diabetes" name="preCondition">
+                            <label for="Diabetes">Diabetes</label>
                         </div>
                         <h2>Please check which habits you have:</h2>
                         <div>
-                            <input type="checkbox" id="Hypertension">
-                            <label for="Hypertension">Hypertension</label>
+                            <input type="checkbox" id="Smoking" name="badHabit">
+                            <label for="Smoking">Smoking</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="Blood sugar">
-                            <label for="Blood sugar">Blood sugar</label>
+                            <input type="checkbox" id="Drug use" name="badHabit">
+                            <label for="Drug use">Drug use</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="Overweight">
-                            <label for="Overweight">Overweight</label>
+                            <input type="checkbox" id="Extreme sports" name="badHabit">
+                            <label for="Extreme sports">Extreme sports</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="eye sight">
-                            <label for="eye sight">Poor eye sight</label>
+                            <input type="checkbox" id="Alcohol" name="badHabit">
+                            <label for="Alcohol">Alcohol</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="Hypertension">
-                            <label for="Hypertension">Hypertension</label>
-                        </div>
+                            <input type="checkbox" id="Running" name="goodHabit">
+                            <label for="Running">Running</label>
+                        </div> 
                         <div>
-                            <input type="checkbox" id="Hypertension">
-                            <label for="Hypertension">Hypertension</label>
-                        </div>
+                            <input type="checkbox" id="swimming" name="goodHabit">
+                            <label for="swimming">Swimming</label>
+                        </div> 
+                        <div>
+                            <input type="checkbox" id="hiking" name="goodHabit">
+                            <label for="hiking">Hiking</label>
+                        </div>                   
                     </div>
-
+                    <button type="submit">Calculate</button>
                 </form>
+                <div><p id="answer"></p></div>
             </div>    
         </section>
     </main>
+    <script src="main.js"></script>
 </body>
 </html>

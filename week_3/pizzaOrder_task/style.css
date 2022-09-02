@@ -53,7 +53,7 @@ h4 {
 
 .hero-image {
     width: 50vw;
-    background: url('/pizzaOrder_task/images/pizza.gif') no-repeat fixed center center/cover;
+    background: url(/s2201195/pizzaOrder_task/images/pizza.gif) no-repeat fixed center center/cover;
 }
 
 .content {
