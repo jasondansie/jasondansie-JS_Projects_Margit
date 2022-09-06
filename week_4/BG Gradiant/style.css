@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "raleway", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
+h1{
+    font-weight: bold;
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 0 0 30px;
+}
+
+main {
+    display: flex;
+    height: 100vh;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.colorInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section {
+    width: 80%;
+    background-color: darkslategrey; 
+    background-image: linear-gradient(red, orange
+    ); 
+}
+
+.direction{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.direction .row1{
+    display: flex;
+    width: 100%; 
+}
+.direction .row2{
+    display: flex;
+    width: 100%;
+}
+.direction .row3{
+    display: flex;
+    width: 100%; 
+}
+
+input[type="radio"] {
+    display: none;
+}
+
