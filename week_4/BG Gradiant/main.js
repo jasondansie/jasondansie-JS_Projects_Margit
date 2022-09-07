@@ -37,5 +37,6 @@ changeCSSText = () => {
     cssText.textContent = `CSS: linear-gradient(${direction}, ${color2}, ${color1})`;
 }
 
+
 colorButton1.addEventListener("change", changeColor);
 colorButton2.addEventListener("change", changeColor);
