@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Car Darabase</title>
+</head>
+<body>
+  <main>
+    <aside>
+        <div>   
+            <h1>Insert Car Data</h1>
+        </div>
+        
+        <form action="#">
+            <div>
+                <label for="license">license number</label>
+                <input type="text" id="license">
+            </div>
+            <div>
+                <label for="make">Make</label>
+                <input type="text" id="Make">
+            </div>
+            <div>
+                <label for="model">Model</label>
+                <input type="text" id="model">
+            </div>
+            <div>
+                <label for="owner">Owner</label>
+                <input type="text" id="owner">
+            </div>
+            <div>
+                <label for="car_price">Car price</label>
+                <input type="text" id="car_price">
+            </div>
+            <div>
+                <label for="car_color">Car color</label>
+                <input type="text" id="car_color">
+            </div>
+
+            <button id="add">Add Car</button>
+            <button id="reset">Reset</button>
+        </form>
+    </aside>
+    <section>
+        <div>
+            <h1> Cars Database</h1>
+        </div>
+       <div id="tableDiv">
+       </div>
+        
+    </section>
+  </main> 
+    <script src="main.js"></script>
+</body>
+</html>
