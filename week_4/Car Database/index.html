@@ -23,7 +23,7 @@
             </div>
             <div>
                 <label for="make">Make</label>
-                <input type="text" id="Make">
+                <input type="text" id="make">
             </div>
             <div>
                 <label for="model">Model</label>
@@ -50,9 +50,20 @@
         <div>
             <h1> Cars Database</h1>
         </div>
-       <div id="tableDiv">
-       </div>
-        
+       <div>
+            <table id="carTable">
+                <tr>
+                    <th>license</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Owner</th>
+                    <th>Price</th>
+                    <th>Color</th>
+                </tr>
+                <tbody id="carTableBody">  
+                </tbody>
+            </table>
+       </div>       
     </section>
   </main> 
     <script src="main.js"></script>

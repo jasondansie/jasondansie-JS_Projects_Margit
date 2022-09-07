@@ -47,6 +47,9 @@ tr{
     height: 40px;
     width: 80px;
 }
+th{
+    background-color: cornflowerblue;
+}
 
 label {
     display: inline-block;

@@ -1,34 +1,32 @@
-const tableDiv = document.querySelector("#tableDiv");
+const carTableBody = document.querySelector("#carTableBody");
 const license = document.querySelector("#license");
 const make = document.querySelector("#make");
 const model = document.querySelector("#model");
-const owner = document.querySelector("#tabownerleDiv");
-const carPrice = document.querySelector("#car_pirce");
+const owner = document.querySelector("#owner");
+const carPrice = document.querySelector("#car_price");
 const carColor = document.querySelector("#car_color");
 const addCar = document.querySelector("#add");
-const resetArray = document.querySelector("#reset");
-
-let carsTable = document.createElement('table');
+const resetCarsArray = document.querySelector("#reset");
+const form = document.querySelector("form");
 
 const CarsArray = [];
 
 buildTable = () => {
+    
     let count = 0;
+    let carsTable = document.createElement('table');
+    
     for (let row of CarsArray) 
     {
-        carsTable.insertRow();
+        carTableBody.insertRow();
         
         for (let cell of row) 
         {
-            let newCell = carsTable.rows[carsTable.rows.length - 1].insertCell();
+            let newCell = carTableBody.rows[carTableBody.rows.length - 1].insertCell();
     
             newCell.textContent = cell;
-            if (count == 0) {
-                console.log("count: ", count);
-                newCell.style.backgroundColor = "rgb(99, 148, 237)";
-                newCell.style.color = "white";
-            } 
-            else if (count % 2 == 0)
+
+            if (count % 2 == 0)
             {
                 console.log("count: ", count);
                 newCell.style.backgroundColor = "gray";
@@ -44,25 +42,30 @@ buildTable = () => {
         count++;
     }
 
-  tableDiv.appendChild(carsTable);
+    carTableBody.appendChild(carsTable);
 }
 
-  addRow = () => {
-    
-    
-    if (!license) {
-        CarsArray.push(["003-456", "Ford", "Mustang", "110000", "Red"]);
-        CarsArray.push([`${license}`, make, model, carPrice, carColor]);
-    }
-    else{
-        CarsArray.push(["License", "Make", "Model", "Price", "Color"]);
+addRow = () => {   
+    if (license.value != "") {
+        CarsArray.push([`${license.value}`, `${make.value}`, `${model.value}`, `${owner.value}`, `${carPrice.value}`, `${carColor.value}`]);
     }
     
+    carTableBody.innerHTML = "";
     buildTable();
-  }
+}
 
-  addCar.addEventListener("click", addRow);
+addCar.addEventListener("click", addRow);
 
+resetCars = () =>{
+    CarsArray.length = 0;
+    while (CarsArray.length > 0) {
+        CarsArray.pop();
+      }
+    while (carTableBody.childNodes.length) {
+        carTableBody.removeChild(carTableBody.childNodes[0]);
+      }
+}
 
-  console.log("table: ", carsTable);
-  
+resetCarsArray.addEventListener("click", resetCars);
+
+addRow();
