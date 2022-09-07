@@ -12,7 +12,7 @@ body {
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
+  'FILL' 1,
   'wght' 400,
   'GRAD' 0,
   'opsz' 48
@@ -50,15 +50,14 @@ aside {
 section {
     width: 80%;
     background-color: darkslategrey; 
-    background-image: linear-gradient(red, orange
-    ); 
+    background-image: linear-gradient(red, orange); 
 }
 
 .direction{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+   margin: 0 70px 0;
 }
 .direction .row1{
     display: flex;
@@ -77,3 +76,10 @@ input[type="radio"] {
     display: none;
 }
 
+label{
+    display: flex;
+    width: 5vw;
+    height: 5vh;
+   align-items: center;
+   justify-content: center;
+}
