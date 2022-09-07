@@ -12,40 +12,62 @@ body{
 
 main{
     display: flex;
-    flex-direction: row;
-    height: 90vh;
+    flex-direction: column;
+    width: inherit;
+    height: inherit;
+    margin: 2% 0 0;
+    background-color:cornflowerblue;
+}
+
+#serch{
+    display: flex;
+    height: 30vh;
     width: 100vw;
-    margin: 70px 0 0;
+    margin: 2% 0 2%;
     background-color: white;
+    justify-content: center;
+   
+}
+
+#search form{
+    margin: 5% 0 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    background-color: white;
+    
 }
 
 aside{
     display: flex;
     flex-direction: column;
-    justify-content: right;
     width: 35%;
-    margin: 200px 100px 0;
-
+    height: inherit;
+    margin: 5% 100px 0;
 }
 h1{
     margin: 0 0 30px;
 }
 
-section{
+.container section{
     display: flex;
     flex-direction: column;
     width: 65%;
-    margin: 200px 100px 0;
+    margin: 5% 10px 10px;
 }
 
 
 table{
-    width: 30%;   
+    width: 45%;   
 }
 
 tr{
     height: 40px;
     width: 80px;
+    text-align: center;
 }
 th{
     background-color: cornflowerblue;

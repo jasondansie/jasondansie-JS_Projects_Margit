@@ -11,60 +11,71 @@
 </head>
 <body>
   <main>
-    <aside>
-        <div>   
-            <h1>Insert Car Data</h1>
-        </div>
-        
-        <form action="#">
+    <section id="serch">
+        <form>
             <div>
-                <label for="license">license number</label>
-                <input type="text" id="license">
+                <label for="carSearch">license number</label>
+                <input type="text" id="carSearch">
             </div>
-            <div>
-                <label for="make">Make</label>
-                <input type="text" id="make">
-            </div>
-            <div>
-                <label for="model">Model</label>
-                <input type="text" id="model">
-            </div>
-            <div>
-                <label for="owner">Owner</label>
-                <input type="text" id="owner">
-            </div>
-            <div>
-                <label for="car_price">Car price</label>
-                <input type="text" id="car_price">
-            </div>
-            <div>
-                <label for="car_color">Car color</label>
-                <input type="text" id="car_color">
-            </div>
-
-            <button id="add">Add Car</button>
-            <button id="reset">Reset</button>
         </form>
-    </aside>
-    <section>
-        <div>
-            <h1> Cars Database</h1>
-        </div>
-       <div>
-            <table id="carTable">
-                <tr>
-                    <th>license</th>
-                    <th>Make</th>
-                    <th>Model</th>
-                    <th>Owner</th>
-                    <th>Price</th>
-                    <th>Color</th>
-                </tr>
-                <tbody id="carTableBody">  
-                </tbody>
-            </table>
-       </div>       
     </section>
+    <div class="container">
+        <aside>
+            <div>   
+                <h1>Insert Car Data</h1>
+            </div>
+            
+            <form action="#">
+                <div>
+                    <label for="license">license number</label>
+                    <input type="text" id="license">
+                </div>
+                <div>
+                    <label for="make">Make</label>
+                    <input type="text" id="make">
+                </div>
+                <div>
+                    <label for="model">Model</label>
+                    <input type="text" id="model">
+                </div>
+                <div>
+                    <label for="owner">Owner</label>
+                    <input type="text" id="owner">
+                </div>
+                <div>
+                    <label for="car_price">Car price</label>
+                    <input type="text" id="car_price">
+                </div>
+                <div>
+                    <label for="car_color">Car color</label>
+                    <input type="text" id="car_color">
+                </div>
+    
+                <button id="add">Add Car</button>
+                <button id="reset">Reset</button>
+            </form>
+        </aside>
+        <section>
+            <div>
+                <h1> Cars Database</h1>
+            </div>
+           <div>
+                <table id="carTable">
+                    <tr>
+                        <th>license</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Owner</th>
+                        <th>Price</th>
+                        <th>Color</th>
+                    </tr>
+                    <tbody id="carTableBody">  
+                    </tbody>
+                </table>
+           </div>       
+        </section> 
+    </div>
+    
   </main> 
     <script src="main.js"></script>
 </body>
