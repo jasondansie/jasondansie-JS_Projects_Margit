@@ -3,7 +3,7 @@ const colorButton1 = document.querySelector("#color1");
 const colorButton2 = document.querySelector("#color2");
 const gradientArea = document.querySelector("section");
 
-let direction = " to down";
+let direction = " to bottom";
 let color1 = "red";
 let color2 = "orange";
 
@@ -21,7 +21,10 @@ changeColor = () => {
 
 radioButton.forEach((button) => {
     button.addEventListener("change", function() {
-        changeGradient();
+        if (button.id != "middle") {
+            direction = `to ${button.id}`;
+            changeGradient();
+        }     
       });
 });
 
@@ -36,11 +39,3 @@ changeCSSText = () => {
 
 colorButton1.addEventListener("change", changeColor);
 colorButton2.addEventListener("change", changeColor);
-
-
-
-
-
-
-
-
