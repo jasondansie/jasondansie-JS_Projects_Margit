@@ -29,12 +29,12 @@ radioButton.forEach((button) => {
 });
 
 changeGradient = () => {
-    gradientArea.style.backgroundImage = `linear-gradient(${direction}, ${color1}, ${color2})`;
+    gradientArea.style.backgroundImage = `linear-gradient(${direction}, ${color2}, ${color1})`;
     changeCSSText();
 }
 
 changeCSSText = () => {
-    cssText.textContent = `CSS: linear-gradient(${direction}, ${colorButton1.value}, ${colorButton2.value})`;
+    cssText.textContent = `CSS: linear-gradient(${direction}, ${color2}, ${color1})`;
 }
 
 colorButton1.addEventListener("change", changeColor);

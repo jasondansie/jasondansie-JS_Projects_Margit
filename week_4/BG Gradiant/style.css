@@ -83,3 +83,7 @@ label{
    align-items: center;
    justify-content: center;
 }
+
+label:hover, label:active, input:hover+label, input:active+label {
+    background:rgb(54, 54, 51);
+}
