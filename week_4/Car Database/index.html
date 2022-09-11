@@ -11,12 +11,15 @@
 </head>
 <body>
   <main>
-    <section id="serch">
-        <form>
+    <section id="search">      
+        <form id="searchForm">
+            <h2>Search by license number.</h2>
             <div>
-                <label for="carSearch">license number</label>
-                <input type="text" id="carSearch">
+                <label for="searchBox">license number</label>
+                <input type="text" id="searchBox">
+                <p id="searchResults"></p>
             </div>
+            <button id="carSearch">Search</button>
         </form>
     </section>
     <div class="container">
@@ -25,7 +28,7 @@
                 <h1>Insert Car Data</h1>
             </div>
             
-            <form action="#">
+            <form id="carForm">
                 <div>
                     <label for="license">license number</label>
                     <input type="text" id="license">
