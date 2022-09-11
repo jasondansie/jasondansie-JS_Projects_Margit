@@ -10,6 +10,7 @@ const resetCarsArray = document.querySelector("#reset");
 const carSearchButton = document.querySelector("#carSearch");
 const searchBox = document.querySelector("#searchBox");
 const searchResults = document.querySelector("#searchResults");
+const form = document.querySelector("form");
 
 
 const CarsArray = [];
@@ -48,7 +49,8 @@ buildTable = () => {
     carTableBody.appendChild(carsTable);
 }
 
-addRow = () => {   
+addRow = (e) => { 
+    e.preventDefault();
     if (license.value != "") {
         CarsArray.push([`${license.value}`, `${make.value}`, `${model.value}`, `${owner.value}`, `${carPrice.value}`, `${carColor.value}`]);
     }
@@ -74,9 +76,9 @@ resetCars = () => {
 
 resetCarsArray.addEventListener("click", resetCars);
 
-searchForCar = () => {
-    console.log("search:", searchBox.value);
-    console.log("carsArray: ", CarsArray);
+searchForCar = (e) => {
+    e.preventDefault();
+   
     let foundCar = [];
 
     CarsArray.forEach(car => {
@@ -88,7 +90,6 @@ searchForCar = () => {
         {
             foundCar == "";
         }
-
     });
 
     if (foundCar != "") 
@@ -99,10 +100,8 @@ searchForCar = () => {
     {
         searchResults.textContent = "No car found with that license number"
     }
-
-    console.log("foundCar: ", foundCar);
-    
 }
 
 carSearch.addEventListener("click", searchForCar);
+
 addRow();
