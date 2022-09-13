@@ -23,6 +23,7 @@ main {
 #search {
     display: flex;
     height: 40vh;
+    min-height: 40vh;
     width: 100vw;
     margin: 2% 0 2%;
     background-color: white;

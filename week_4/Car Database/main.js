@@ -12,10 +12,9 @@ const searchBox = document.querySelector("#searchBox");
 const searchResults = document.querySelector("#searchResults");
 const form = document.querySelector("form");
 
-
 const CarsArray = [];
 
-class car{
+class Car{
     constructor(license, make, model, name, price, color)
     {
         this.license = license;
@@ -34,14 +33,12 @@ buildTable = () => {
     
     for (let row of CarsArray) 
     {
-        console.log("row: ",row);
         carTableBody.insertRow();
         
-        for (let i in row) 
+        for (let value in row) 
         {
             let newCell = carTableBody.rows[carTableBody.rows.length - 1].insertCell();
-            console.log("cell", row[i]);
-            newCell.textContent = row[i];
+            newCell.textContent = row[value];
         }
         count++;
     }
@@ -51,7 +48,7 @@ buildTable = () => {
 
 addRow = (e) => { 
     e.preventDefault();
-    newCar = new car(`${license.value}`, `${make.value}`, `${model.value}`, `${owner.value}`, `${carPrice.value}`, `${carColor.value}`);
+    newCar = new Car(`${license.value}`, `${make.value}`, `${model.value}`, `${owner.value}`, `${carPrice.value}`, `${carColor.value}`);
     console.log(newCar);
     if (license.value != "") {
         CarsArray.push(newCar);
@@ -85,7 +82,7 @@ searchForCar = (e) => {
 
     CarsArray.forEach(car => {
         console.log(car);
-        if (car[0] == searchBox.value) {
+        if (car.license == searchBox.value) {
             foundCar = car;
         }
         else
@@ -96,7 +93,7 @@ searchForCar = (e) => {
 
     if (foundCar != "") 
     {
-        searchResults.textContent = `license number ${foundCar[0]} is a ${foundCar[1]} ${foundCar[2]} and it belongs to ${foundCar[3]} and it is ${foundCar[5]}.`;
+        searchResults.textContent = `license number ${foundCar.license} is a ${foundCar.make} ${foundCar.model} and it belongs to ${foundCar.name} and it is ${foundCar.color}.`;
     }
     else
     {
