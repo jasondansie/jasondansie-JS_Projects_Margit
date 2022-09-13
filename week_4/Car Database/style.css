@@ -1,25 +1,26 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     display: flex;
     background-color: cornflowerblue;
     height: 100vh;
     width: 100vw;
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
     width: inherit;
     height: inherit;
     margin: 2% 0 0;
-    background-color:cornflowerblue;
+    background-color: cornflowerblue;
 }
 
-#search{
+#search {
     display: flex;
     height: 40vh;
     width: 100vw;
@@ -27,34 +28,35 @@ main{
     background-color: white;
 }
 
-#search form{
+#search form {
     margin: 2% 100px 10px;
 }
 
-#search form h2{
+#search form h2 {
     margin: 0 0 30px;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: row;
     width: 100vw;
     background-color: white;
-    
+
 }
 
-aside{
+aside {
     display: flex;
     flex-direction: column;
     width: 35%;
     height: inherit;
     margin: 5% 100px 0;
 }
-h1{
+
+h1 {
     margin: 0 0 30px;
 }
 
-.container section{
+.container section {
     display: flex;
     flex-direction: column;
     width: 65%;
@@ -62,16 +64,17 @@ h1{
 }
 
 
-table{
-    width: 45%;   
+table {
+    width: 45%;
 }
 
-tr{
+tr {
     height: 40px;
     width: 80px;
     text-align: center;
 }
-th{
+
+th {
     background-color: cornflowerblue;
 }
 
@@ -80,7 +83,8 @@ label {
     width: 200px;
     margin: 0 0 30px;
 }
-input{
+
+input {
     height: 35px;
     width: 200px;
     margin: 0 0 30px;
@@ -91,6 +95,10 @@ button {
     width: 130px;
     margin: 20px 0 0;
     border-radius: 8px;
-    background-color:rgb(5, 148, 155);
+    background-color: rgb(5, 148, 155);
 }
 
+#carTableBody tr:nth-child(odd) {
+    background-color: gray;
+    color: whitesmoke;
+}

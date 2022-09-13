@@ -15,6 +15,18 @@ const form = document.querySelector("form");
 
 const CarsArray = [];
 
+class car{
+    constructor(license, make, model, name, price, color)
+    {
+        this.license = license;
+        this.make = make;
+        this.model = model;
+        this.name = name;
+        this.price= price;
+        this.color = color;
+    }
+}
+
 buildTable = () => {
     
     let count = 0;
@@ -22,26 +34,14 @@ buildTable = () => {
     
     for (let row of CarsArray) 
     {
+        console.log("row: ",row);
         carTableBody.insertRow();
         
-        for (let cell of row) 
+        for (let i in row) 
         {
             let newCell = carTableBody.rows[carTableBody.rows.length - 1].insertCell();
-    
-            newCell.textContent = cell;
-
-            if (count % 2 == 0)
-            {
-                console.log("count: ", count);
-                newCell.style.backgroundColor = "gray";
-                newCell.style.color = "black";   
-            }
-            else
-            {
-                console.log("count: ", count);
-                newCell.style.backgroundColor = "white";
-                newCell.style.color = "black"; 
-            }  
+            console.log("cell", row[i]);
+            newCell.textContent = row[i];
         }
         count++;
     }
@@ -51,8 +51,10 @@ buildTable = () => {
 
 addRow = (e) => { 
     e.preventDefault();
+    newCar = new car(`${license.value}`, `${make.value}`, `${model.value}`, `${owner.value}`, `${carPrice.value}`, `${carColor.value}`);
+    console.log(newCar);
     if (license.value != "") {
-        CarsArray.push([`${license.value}`, `${make.value}`, `${model.value}`, `${owner.value}`, `${carPrice.value}`, `${carColor.value}`]);
+        CarsArray.push(newCar);
     }
     
     carTableBody.innerHTML = "";
