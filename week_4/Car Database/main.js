@@ -81,7 +81,7 @@ searchForCar = (e) => {
     let foundCar = [];
 
     CarsArray.forEach(car => {
-        console.log(car);
+        console.log("car",car);
         if (car.license == searchBox.value) {
             foundCar = car;
         }

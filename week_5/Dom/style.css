@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Saint Ultra Condensed", sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+
+header {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+.logo {
+    flex: 1;
+}
+
+img {
+    height: 15vh;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    flex: 3;
+}
+
+ul li a {
+    padding: 20px;
+    display: block;
+    color: rgb(205, 208, 180);
+    text-decoration: none;
+}
+
+p {
+    font-size: 20px;
+}
+
+.section-1,
+.section-2,
+.section-3 {
+    height: 100vh;
+    color: white;
+}
+
+.section-1 {
+    background-color: #0C46F0;
+    padding-top: 10vh;
+}
+
+.section-2 {
+    background-color: #5117E3;
+}
+
+.section-3 {
+    background-color: #C90CF0;
+}
+
+footer {
+    background-color: black;
+    height: 10vh;
+    text-align: center;
+    color: white;
+}
