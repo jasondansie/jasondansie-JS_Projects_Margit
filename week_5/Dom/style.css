@@ -4,12 +4,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overscroll-behavior: none;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: "Saint Ultra Condensed", sans-serif;
     width: 100vw;
     height: 100vh;
+}
+
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+.btn {
+    background-color: indianred;
+    font-size: inherit;
+    margin: 15px 0 0;
+
 }
 
 header {
@@ -24,6 +45,10 @@ header {
     color: white;
 }
 
+.bg {
+    background-color: black;
+}
+
 .logo {
     flex: 1;
 }
@@ -32,46 +57,136 @@ img {
     height: 15vh;
 }
 
-nav ul {
-    display: flex;
-    list-style-type: none;
-    flex: 3;
+nav ul li {
+    display: inline-block;
+    margin: 1rem;
+
 }
 
-ul li a {
-    padding: 20px;
-    display: block;
-    color: rgb(205, 208, 180);
+nav a {
+
+    color: white;
     text-decoration: none;
+}
+
+#mobileButton {
+    display: none;
 }
 
 p {
     font-size: 20px;
 }
 
-.section-1,
-.section-2,
-.section-3 {
+section {
     height: 100vh;
     color: white;
+    scroll-margin-top: 5rem;
 }
 
-.section-1 {
+section:first-child {
     background-color: #0C46F0;
-    padding-top: 10vh;
+    padding-top: 11vh;
 }
 
-.section-2 {
+section:nth-child(2) {
     background-color: #5117E3;
 }
 
-.section-3 {
+section:nth-child(3) {
     background-color: #C90CF0;
 }
+
+section h2 {
+    padding: 10px 10px 0px;
+}
+
+/*overlay*/
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(224, 217, 217, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    position: relative;
+    background-color: white;
+    min-height: 50vh;
+    width: 50vw;
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: 0 0 5px rgb(111, 111, 111);
+}
+
+.btnClose {
+    background-color: red;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin: 0 10px 0;
+    display: none;
+}
+
+.overlay,
+.modal .close {
+    display: none;
+}
+
+
+/* footer*/
 
 footer {
     background-color: black;
     height: 10vh;
     text-align: center;
     color: white;
+}
+
+#scrollUpButton {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+    nav ul {
+        display: none;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #mobileButton {
+        background-color: transparent;
+        display: block;
+        color: white;
+        border: none;
+        padding: 1rem;
+    }
+
+    nav.responsive ul {
+        background-color: white;
+        width: 100%;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 85px;
+    }
+
+    nav.responsive ul li {
+        display: block;
+    }
+
+    nav.responsive ul li a {
+        color: #032330;
+    }
 }

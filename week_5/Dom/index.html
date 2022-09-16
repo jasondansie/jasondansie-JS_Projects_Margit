@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <link rel="stylesheet" href="style.css">
     <title>Dom examples</title>
 </head>
@@ -15,30 +17,47 @@
             <img src="/week_5/Dom/images/1-transperant.png" alt="Jason Dansie">
         </div>   
         <nav>
+            <button id="mobileButton">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
             <ul>
-                <li><a href="Section 1">Section 1</a></li>
-                <li><a href="Section 2">Section 2</a></li>
-                <li><a href="Section 3">Section 3</a></li>     
+                <li><a href="#section1">Section 1</a></li>
+                <li><a href="#section2">Section 2</a></li>
+                <li><a href="#section3">Section 3</a></li>     
             </ul>
         </nav>  
     </header>   
-    <main>
-        <section>
-            <div class="section-1">
-                <h2>Section 1</h2>
-                <button>Open Modal</button>
-            </div>
-            <div class="section-2">
-                <h2>Section 2</h2>
-            </div>
-            <div class="section-3">
-                <h2>Section 3</h2>
-            </div>
-
-            <h3 id="showScroll"></h3>
+    <main>   
+        <section id="section1">
+            <h2>Section 1</h2>
+            <button class="btn" id="modalButton">Open Modal</button>
         </section>
+        <section id="section2">
+            <h2>Section 2</h2>
+        </section>
+        <section id="section3">
+            <h2>Section 3</h2>
+        </section>   
+        
+        <div class="overlay">
+            <div class="modal">
+                <h2>Modal</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. At saepe illo magni, in dolor ratione explicabo amet porro reprehenderit ea laboriosam deleniti praesentium nemo ut laborum error voluptatum blanditiis iure expedita sapiente quasi eum. Nesciunt saepe iure fugiat aut excepturi inventore nisi sed totam quae quia, repellendus debitis! Non, nesciunt.
+
+                </p>
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. At saepe illo magni, in dolor ratione explicabo amet porro reprehenderit ea laboriosam deleniti praesentium nemo ut laborum error voluptatum blanditiis iure expedita sapiente quasi eum. Nesciunt saepe iure fugiat aut excepturi inventore nisi sed totam quae quia, repellendus debitis! Non, nesciunt.
+                </p>
+                <button class="btnClose">X</button>
+                
+            </div>
+        </div>
     </main>
-    <footer>copyright 2022</footer>
+    <footer>copyright 2022
+        <button class="btn" id="scrollUpButton">Back to Top</button>
+    </footer>
     <script src="main.js"></script>
 </body>
 </html>
