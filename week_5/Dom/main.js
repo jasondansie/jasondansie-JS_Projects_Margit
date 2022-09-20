@@ -1,10 +1,10 @@
 
 const header = document.querySelector("header");
 const scrollUpButton = document.querySelector("#scrollUpButton");
-const modalButton = document.querySelector("modalButton");
-const overlay = document.querySelector("overlay");
-const modal = document.querySelector("modal");
-const closeButton = document.querySelector("closeButton");
+const modalButton = document.querySelector("#modalButton");
+const overlay = document.querySelector("#overlay");
+const modal = document.querySelector("#modal");
+const closeButton = document.querySelector("#btnClose");
 const mobileButton = document.querySelector("#mobileButton");
 const nav = document.querySelector("nav");
 
@@ -48,9 +48,10 @@ const openMobileMenu = () =>{
     }
     else{
         nav.classList.add("responsive");
-        document.body.style.overflow = '';
     }
 }
 
   scrollUpButton.addEventListener("click", topFunction);
   mobileButton.addEventListener("click", openMobileMenu);
+  modalButton.addEventListener("click", openModal);
+  closeButton.addEventListener("click", closeModal);

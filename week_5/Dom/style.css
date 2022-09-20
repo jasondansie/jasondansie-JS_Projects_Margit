@@ -108,7 +108,7 @@ section h2 {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(224, 217, 217, 0.75);
+    background-color: rgba(60, 57, 57, 0.75);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,14 +127,14 @@ section h2 {
 .btnClose {
     background-color: red;
     position: absolute;
-    top: 10px;
-    right: 10px;
-    margin: 0 10px 0;
-    display: none;
+    top: 20px;
+    right: 20px;
+
 }
 
 .overlay,
-.modal .close {
+.modal,
+.close {
     display: none;
 }
 
