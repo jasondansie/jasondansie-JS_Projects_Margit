@@ -17,6 +17,9 @@ body {
     height: 100vh;
 }
 
+p {
+    margin: 20px 0 30px;
+}
 
 .material-symbols-outlined {
     font-variation-settings:
@@ -100,7 +103,15 @@ section h2 {
     padding: 10px 10px 0px;
 }
 
-/*overlay*/
+/*Modal*/
+
+.overlay {
+    display: none;
+}
+
+.overlay.visible {
+    display: flex;
+}
 
 .overlay {
     position: fixed;
@@ -109,12 +120,11 @@ section h2 {
     height: 100%;
     width: 100%;
     background-color: rgba(60, 57, 57, 0.75);
-    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.modal {
+.overlay.visible .modal {
     position: relative;
     background-color: white;
     min-height: 50vh;
@@ -124,19 +134,21 @@ section h2 {
     box-shadow: 0 0 5px rgb(111, 111, 111);
 }
 
+.overlay.visible .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
 .btnClose {
     background-color: red;
+    color: white;
     position: absolute;
     top: 20px;
     right: 20px;
 
 }
 
-.overlay,
-.modal,
-.close {
-    display: none;
-}
 
 
 /* footer*/

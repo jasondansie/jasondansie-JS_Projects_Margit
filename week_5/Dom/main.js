@@ -7,6 +7,7 @@ const modal = document.querySelector("#modal");
 const closeButton = document.querySelector("#btnClose");
 const mobileButton = document.querySelector("#mobileButton");
 const nav = document.querySelector("nav");
+const links = document.querySelectorAll("nav ul li a");
 
 
 window.onscroll = function() {scrollFunction()};
@@ -27,9 +28,8 @@ function topFunction() {
   }
 
 function openModal() {
-    overlay.style.display = "block";
-    modal.style.display = "block";
-    closeButton.style.display = "block";
+    //this is a better way to do this. Keep the style in the css.
+    overlay.classList.toggle("visible");
 }
 
 function closeModal() {
