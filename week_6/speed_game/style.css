@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Lato:wght@300;700&family=Stint+Ultra+Condensed&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Bungee Spice", sans-serif;
+    background-color: lightgreen;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+}
+
+h1,
+h2,
+section {
+    margin: 20px 0 0;
+}
+
+.title_score {
+    background-color: aqua;
+    min-height: 75vh;
+}
+
+section .circles {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    background-color: rgb(10, 8, 7);
+    color: white;
+    text-align: center;
+    margin: 1rem;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle.active {
+    background-color: darkgray;
+
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    cursor: pointer;
+    color: white;
+}
+
+#game_area {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    width: 100%;
+    border-radius: 400px 400px 0 0;
+    background-color: lightgreen;
+}
+
+#game_area section {
+    padding-top: 4rem;
+}
+
+button #stop {
+    display: none;
+}
