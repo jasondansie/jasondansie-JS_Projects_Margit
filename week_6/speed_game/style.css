@@ -82,3 +82,49 @@ button {
 button #stop {
     display: none;
 }
+
+/*Modal*/
+
+.overlay {
+    display: none;
+}
+
+.overlay.visible {
+    display: flex;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(60, 57, 57, 0.75);
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay.visible .modal {
+    position: relative;
+    background-color: aqua;
+    min-height: 40vh;
+    width: 60vw;
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: 0 0 5px rgb(111, 111, 111);
+}
+
+.overlay.visible .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.btnClose {
+    background-color: red;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+}

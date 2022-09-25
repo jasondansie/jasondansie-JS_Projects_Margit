@@ -3,6 +3,10 @@ const startButton = document.querySelector("#startGame");
 const stopButton = document.querySelector("#stopGame");
 const scoreText = document.querySelector("#score");
 
+const overlay = document.querySelector("#overlay");
+const modal = document.querySelector("#modal");
+const closeButton = document.querySelector("#btnClose");
+
 let score = 0;
 let count = 1;
 let currentCircle;
@@ -52,6 +56,7 @@ startGame = () => {
 stopGame = () => {
     circles[currentCircle].classList.remove("active");
     clearTimeout(timer);
+    openModal();
 }
 
 checkCircle = (circle) => {
@@ -78,6 +83,16 @@ circles.forEach((circle) => {
     });
 } )
 
+function openModal() {
+    //this is a better way to do this. Keep the style in the css.
+    overlay.classList.toggle("visible");
+}
+
+function closeModal() {
+    overlay.classList.toggle("visible");
+}
+
 startButton.addEventListener("click", startGame);
 stopButton.addEventListener("click", stopGame);
+closeButton.addEventListener("click", closeModal);
 
