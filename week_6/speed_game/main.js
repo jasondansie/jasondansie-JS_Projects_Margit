@@ -4,52 +4,69 @@ const stopButton = document.querySelector("#stopGame");
 const scoreText = document.querySelector("#score");
 
 let score = 0;
-let count = 0;
-let currentCircle = 10;
-let activeCircle ="";
+let count = 1;
+let currentCircle;
 let interval = 2000;
 let timer = 0;
 
 activateCircle = () =>{
+
+    //creates a random whole value between 0 and 3
     const rndNum = Math.floor(Math.random() * 4);
 
+    //checks if the ramdom number is the same as last and if so recalls the function to get a new number
     if (rndNum == currentCircle) {
         activateCircle();
     }
     else{
+        //checks the size of the circle array so we dont get a null value 
+        if (currentCircle < circles.length) {
+            circles[currentCircle].classList.remove("active");
+        }
 
-        console.log("currtetnCircle: ", currentCircle);
-        console.log(rndNum);
+        // trackes the current circle so we can clear it next round
+        currentCircle = rndNum;
+
+        //highlights the newly picked circle
+        circles[rndNum].classList.add("active");
+
+        //decreases the interval to speed up the circles
+        interval -= 10;
+
+        //resets count for button press
+        count = 1;
+        setTimer();
     }
 }
 
 setTimer = () => {
-    timer = setTimeout(activateCircle(), interval);
+    timer = setTimeout(activateCircle, interval)     
 }
 startGame = () => {
-    console.log("started");
+    //resets the score text, and clears the active circle when the game starts
+    scoreText.textContent = 0;
+    score = 0;
     setTimer();
 }
 
 stopGame = () => {
-    console.log("stoped");
+    circles[currentCircle].classList.remove("active");
     clearTimeout(timer);
-}
-
-updateScore = () =>{
-    score++;
-    scoreText.textContent = score;
 }
 
 checkCircle = (circle) => {
     if (circle.classList.contains("active")) 
     {
-        console.log("active pressed");
-        updateScore();
+         //count is to make sure you cant get more then one point for pressing the active circle
+        if (count == 1) {
+            score++;
+            scoreText.textContent = score;
+        } 
+        count++;
     }
     else
     {
-
+        stopGame();
     }
 }
 
@@ -57,16 +74,8 @@ circles.forEach((circle) => {
     circle.addEventListener("click", function(){
         if (circle.click) {
             checkCircle(circle); 
-            activeCircle = circle;  
         }
     });
-
-    if (circle.classList.contains("active")) {
-        currentCircle = count;
-        console.log("count: ", count);
-    }
-
-    count++;
 } )
 
 startButton.addEventListener("click", startGame);
