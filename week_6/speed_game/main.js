@@ -3,18 +3,31 @@ const startButton = document.querySelector("#startGame");
 const stopButton = document.querySelector("#stopGame");
 const scoreText = document.querySelector("#score");
 
+//modal section
 const overlay = document.querySelector("#overlay");
 const modal = document.querySelector("#modal");
 const closeButton = document.querySelector("#btnClose");
+const modalText = document.querySelector("#modalText");
+
+//audio files
+const mooSound = document.querySelector("#moo_audio");
+const springSound = document.querySelector("#spring_audio");
+const twangSound = document.querySelector("#twang_audio");
+const hillbillySound = document.querySelector("#hillbilly_audio");
 
 let score = 0;
 let count = 1;
 let currentCircle;
 let interval = 2000;
 let timer = 0;
+let isRunning = false;
 
 activateCircle = () =>{
 
+    if (currentCircle != null) {
+        circles[currentCircle].textContent = currentCircle + 1;
+    }
+    
     //creates a random whole value between 0 and 3
     const rndNum = Math.floor(Math.random() * 4);
 
@@ -35,11 +48,21 @@ activateCircle = () =>{
         circles[rndNum].classList.add("active");
 
         //decreases the interval to speed up the circles
-        interval -= 10;
+        if (interval <= 0) {
+            stopGame();
+        } 
+        else{
+            interval -= 20;
+            setTimer();
+        }
+        
 
         //resets count for button press
         count = 1;
-        setTimer();
+        
+        //removes the number from the circle so it does not show over the cow icon
+        circles[rndNum].textContent = " ";
+        
     }
 }
 
@@ -47,15 +70,34 @@ setTimer = () => {
     timer = setTimeout(activateCircle, interval)     
 }
 startGame = () => {
+
+    springSound.play();
+    hillbillySound.play();
     //resets the score text, and clears the active circle when the game starts
+    if (currentCircle != null) {
+        circles[currentCircle].textContent = currentCircle + 1;
+    }
+    isRunning = true;
     scoreText.textContent = 0;
     score = 0;
     setTimer();
+    startButton.style.display = "none";
+    stopButton.style.display = "initial";
 }
 
 stopGame = () => {
+    twangSound.play();
+    hillbillySound.pause();
+    //sets the number in the circle back to what it was
+    if (currentCircle != null) {
+        circles[currentCircle].textContent = currentCircle + 1;
+    }
+
     circles[currentCircle].classList.remove("active");
     clearTimeout(timer);
+    startButton.style.display = "initial";
+    stopButton.style.display = "none";
+    isRunning = false;
     openModal();
 }
 
@@ -66,7 +108,9 @@ checkCircle = (circle) => {
         if (count == 1) {
             score++;
             scoreText.textContent = score;
+            mooSound.play();
         } 
+       
         count++;
     }
     else
@@ -77,19 +121,43 @@ checkCircle = (circle) => {
 
 circles.forEach((circle) => {
     circle.addEventListener("click", function(){
-        if (circle.click) {
+        if (circle.click && isRunning == true) {
             checkCircle(circle); 
         }
     });
 } )
 
 function openModal() {
-    //this is a better way to do this. Keep the style in the css.
+
+    if (score == 0) {
+        setModaltext("Try again.");
+    }
+    else if(score < 6){
+        setModaltext("Good job.");
+    }
+    else if(score < 11){
+        setModaltext("Wow your doing awesome.");
+    }
+    else if(score < 16){
+        setModaltext("Yor going to make the top score.");
+    }
+    else if(score < 21){
+        setModaltext("Wow amazing skills.");
+    } 
+    else{
+        setModaltext("You are out of this world.");
+    }
+    
     overlay.classList.toggle("visible");
 }
 
 function closeModal() {
     overlay.classList.toggle("visible");
+    //startGame();
+}
+
+setModaltext = (string) => {  
+    modalText.textContent = `You scored ${score}, ${string}`;
 }
 
 startButton.addEventListener("click", startGame);

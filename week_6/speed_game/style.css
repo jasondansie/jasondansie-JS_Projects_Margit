@@ -34,12 +34,14 @@ section .circles {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-top: 45px;
 }
 
 .circle {
     width: 150px;
     height: 150px;
-    background-color: rgb(10, 8, 7);
+    background-color: aqua;
+
     color: white;
     text-align: center;
     margin: 1rem;
@@ -51,8 +53,7 @@ section .circles {
 }
 
 .circle.active {
-    background-color: darkgray;
-
+    background: url("/week_6/speed_game/images/cow-icon.png")no-repeat fixed center center/cover;
 }
 
 button {
@@ -79,7 +80,17 @@ button {
     padding-top: 4rem;
 }
 
-button #stop {
+.barn {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    background: url(https://www.pngall.com/wp-content/uploads/5/Red-Barn-Transparent.png) no-repeat fixed center center/cover;
+}
+
+#stopGame {
     display: none;
 }
 
@@ -106,7 +117,7 @@ button #stop {
 
 .overlay.visible .modal {
     position: relative;
-    background-color: aqua;
+    background-image: linear-gradient(aqua, lightgreen);
     min-height: 40vh;
     width: 60vw;
     border-radius: 10px;
@@ -120,6 +131,10 @@ button #stop {
     right: 20px;
 }
 
+.overlay.visible h2 {
+    margin-bottom: 20px;
+}
+
 .btnClose {
     background-color: red;
     color: white;
@@ -127,8 +142,4 @@ button #stop {
     top: 20px;
     right: 20px;
 
-}
-
-cow {
-    background-image: url("https: //www.google.com/url?sa=i&url=https%3A%2F%2Ficonarchive.com%2Fshow%2Fnoto-emoji-animals-nature-icons-by-google%2F22234-cow-icon.html&psig=AOvVaw3KQtMlqWGmC3S_QR4DDctv&ust=1664184106517000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCMjYuoXPr_oCFQAAAAAdAAAAABAK");
 }
