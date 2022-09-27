@@ -2,6 +2,7 @@ const circles = document.querySelectorAll(".circle");
 const startButton = document.querySelector("#startGame");
 const stopButton = document.querySelector("#stopGame");
 const scoreText = document.querySelector("#score");
+const missesText = document.querySelector("#misses");
 
 //modal section
 const overlay = document.querySelector("#overlay");
@@ -21,6 +22,7 @@ let currentCircle;
 let interval = 2000;
 let timer = 0;
 let isRunning = false;
+let misses = 3;
 
 activateCircle = () =>{
 
@@ -46,7 +48,7 @@ activateCircle = () =>{
 
         //highlights the newly picked circle
         circles[rndNum].classList.add("active");
-
+       
         //decreases the interval to speed up the circles
         if (interval <= 0) {
             stopGame();
@@ -54,9 +56,8 @@ activateCircle = () =>{
         else{
             interval -= 20;
             setTimer();
-        }
+        }    
         
-
         //resets count for button press
         count = 1;
         
@@ -115,14 +116,20 @@ checkCircle = (circle) => {
     }
     else
     {
-        stopGame();
+        misses--;
+        missesText.textContent = misses;
     }
 }
 
 circles.forEach((circle) => {
     circle.addEventListener("click", function(){
         if (circle.click && isRunning == true) {
-            checkCircle(circle); 
+            if (misses > 0) {
+                checkCircle(circle);
+            }
+            else{
+               stopGame();
+            }        
         }
     });
 } )

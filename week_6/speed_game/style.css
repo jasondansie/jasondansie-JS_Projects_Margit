@@ -25,6 +25,9 @@ section {
 }
 
 .title_score {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     background-color: aqua;
     min-height: 75vh;
 }
