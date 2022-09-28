@@ -9,9 +9,14 @@ body {
     text-align: center;
 }
 
+h1 {
+    margin: 0 0 40px;
+}
+
 .cards {
-    margin: 0 20vh 0 20vh;
+    margin: 0 50px 0 50px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .card {
@@ -27,9 +32,7 @@ body {
     object-fit: no-repeat fixed center center/cover;
 }
 
-.card h1,
-.card p,
-.card a {
+.card h1 {
     padding: 0 20px;
     margin: 0 0 20px;
 }
