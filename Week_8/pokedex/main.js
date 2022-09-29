@@ -9,21 +9,22 @@ const getPokeDex = async () => {
             let url = pokemon.url 
             fetch(url).then(response => response.json()).then((pokeData) => {
                 pokemanData.push(pokeData);          
-                pokeCard();          
+                displayPokeCards();          
             });          
         }); 
     });
 }
 
-const pokeCard = () => {
-    const card = pokemanData.map((pokeman) => {
+const displayPokeCards = () => {
+   
+    const card = pokemanData.sort((a, b) => a.name > b.name).map((pokeman) => {
         return `<div class = "card">
         <img src= ${pokeman.sprites["front_default"]} alt="random image">
         <div class="infoArea">
             <h1>${pokeman.name}</h1>
             <i class="fa-brands fa-css3"></i>
         </div>  
-        </div>               `
+        </div>`
     }).join('');
     cards.innerHTML = card;
 }
