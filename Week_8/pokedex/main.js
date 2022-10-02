@@ -1,5 +1,7 @@
 
 const cards = document.querySelector(".cards");
+const search = document.querySelector("#search");
+
 let pokemanData = [];
 
 const getPokeDex = async () => {
@@ -9,15 +11,15 @@ const getPokeDex = async () => {
             let url = pokemon.url 
             fetch(url).then(response => response.json()).then((pokeData) => {
                 pokemanData.push(pokeData);          
-                displayPokeCards();          
-            });          
+                displayPokeCards(pokemanData);
+            });     
         }); 
     });
 }
 
-const displayPokeCards = () => {
+const displayPokeCards = (pokemans) => {
    
-    const card = pokemanData.sort((a, b) => a.name > b.name).map((pokeman) => {
+    const card = pokemans.sort((a, b) => a.name > b.name).map((pokeman) => {
         return `<div class = "card">
         <img src= ${pokeman.sprites["front_default"]} alt="random image">
         <div class="infoArea">
@@ -31,4 +33,20 @@ const displayPokeCards = () => {
 
 }
 
+searchPokedex = (e) => {
+    e.preventDefault();
+
+    pokeman = pokemanData.filter(pok => pok.name.includes(search.value));
+
+    console.log(search.value);
+    if (search.value == "") {
+        displayPokeCards(pokemanData);
+    }
+    else{
+        displayPokeCards(pokeman);
+    }
+
+}
+
+search.addEventListener("keyup", searchPokedex)
 getPokeDex();
