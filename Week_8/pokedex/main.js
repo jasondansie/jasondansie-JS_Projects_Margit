@@ -1,32 +1,25 @@
 
 const cards = document.querySelector(".cards");
-let pokedex = [];
-let pokemans = [];
+let pokemanData = [];
 
-
-const getPokeDex =  () => {
-    fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=10").then((response) => response.json())
+const getPokeDex = async () => {
+    await fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=100").then((response) => response.json())
     .then((data) => {
-        pokedex = data.results;
-        pokeCard();
+        data.results.forEach(pokemon => {               
+            let url = pokemon.url 
+            fetch(url).then(response => response.json()).then((pokeData) => {
+                pokemanData.push(pokeData);          
+                displayPokeCards();          
+            });          
+        }); 
     });
 }
 
-const getPokemanData = () => {
-    const card = pokedex.map((pokeman) => {
-        fetch(pokeman.url).then((response) => response.json())
-    .then((data) => {
-         pokemans.push(data);
-        });             
-    })   
-    pokeCard();
-}
-
-const pokeCard = () => {
-    
-    const card = pokedex.map((pokeman) => {
+const displayPokeCards = () => {
+   
+    const card = pokemanData.sort((a, b) => a.name > b.name).map((pokeman) => {
         return `<div class = "card">
-        <img src="https://images.secretlab.co/theme/common/collab_pokemon_catalog_charizard-min.png" alt="random image">
+        <img src= ${pokeman.sprites["front_default"]} alt="random image">
         <div class="infoArea">
             <h1>${pokeman.name}</h1>
             <i class="fa-brands fa-css3"></i>
