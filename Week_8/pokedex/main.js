@@ -1,23 +1,63 @@
 
 const cards = document.querySelector(".cards");
 const search = document.querySelector("#search");
-const gen1 = document.querySelector("#gen1");
+const buttons = document.querySelectorAll("button");
 
 let pokemanData = [];
 let singlePokeman;
 
-const getPokeDex = async () => {
-    await fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=100").then((response) => response.json())
+const getPokeDex = async (pokeApiUrl) => {
+    pokemanData = [];
+    await fetch(pokeApiUrl).then((response) => response.json())
     .then((data) => {
-        data.results.forEach(pokemon => {               
-            let url = pokemon.url 
-            fetch(url).then(response => response.json()).then((pokeData) => {
-                console.log("pokedata", pokeData.length);
-                pokemanData.push(pokeData);          
-                displayPokeCards(pokemanData);
-            });     
-        }); 
+        if (pokeApiUrl.includes("generation")) {
+            getPokemonData(data.pokemon_species);
+        } else {
+            getPokemonData(data.results);
+        }      
     });
+}
+
+getPokemonData = (data) => {
+    let url = "";
+
+    data.forEach(pokemon => { 
+        
+        if (pokemon.url.includes("species")) {        
+
+            url = "https://pokeapi.co/api/v2/pokemon/" + pokemon.name
+            console.log("url:  ", url)
+        } else {
+            url = pokemon.url
+        }
+         
+        
+        fetch(url).then(response => response.json()).then((pokeData) => {
+            pokemanData.push(pokeData);          
+            displayPokeCards(pokemanData);
+        });     
+    }); 
+}
+
+getGeneration = (index) => {
+    let url = "https://pokeapi.co/api/v2/generation/" + index;
+    
+    getPokeDex(url)
+}
+
+searchPokedex = (e) => {
+    e.preventDefault();
+
+    pokeman = pokemanData.filter(pok => pok.name.includes(search.value));
+
+    if (search.value == "") {
+        displayPokeCards(pokemanData);
+    }
+    else{
+        displayPokeCards(pokeman);
+        singlePokeman = pokeman;
+        
+    }
 }
 
 const displayPokeCards = (pokemans) => {
@@ -72,36 +112,13 @@ const displayPokeCards = (pokemans) => {
     }).join('');
     
     cards.innerHTML = card;
-
 }
 
-searchPokedex = (e) => {
-    e.preventDefault();
-
-    pokeman = pokemanData.filter(pok => pok.name.includes(search.value));
-
-    console.log(search.value);
-    if (search.value == "") {
-        displayPokeCards(pokemanData);
-    }
-    else{
-        displayPokeCards(pokeman);
-        singlePokeman = pokeman;
-        
-    }
-
-}
-
-getGeneration = () => {
-
-    console.log("sp: ", pokeman);
-
-    let gen = fetch(`https://pokeapi.co/api/v2/generation/1/`).then((response) => response.json())
-    .then((data) => {
-        console.log("gen: " ,data);
-    })
-}
+buttons.forEach((button, i)=>{
+    button.addEventListener("click", () => getGeneration(i + 1));
+})
 
 search.addEventListener("keyup", searchPokedex);
-gen1.addEventListener("click", getGeneration);
-getPokeDex();
+
+getPokeDex("https://pokeapi.co/api/v2/pokemon?offset=0&limit=100");
+
