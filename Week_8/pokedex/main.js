@@ -12,6 +12,7 @@ const getPokeDex = async () => {
         data.results.forEach(pokemon => {               
             let url = pokemon.url 
             fetch(url).then(response => response.json()).then((pokeData) => {
+                console.log("pokedata", pokeData.length);
                 pokemanData.push(pokeData);          
                 displayPokeCards(pokemanData);
             });     
@@ -22,26 +23,52 @@ const getPokeDex = async () => {
 const displayPokeCards = (pokemans) => {
    
     const card = pokemans.sort((a, b) => a.name > b.name).map((pokeman) => {
-        return `<div class = "card">
-        <img src= ${pokeman.sprites["front_default"]} alt="random image">
-        <div class="infoArea">
-            <h1>${pokeman.name}</h1>
-            <div id="abilities">
-               <label for="ability">Abilities</label> 
-               <ul id="ability">
-                <li>ability 1</li>
-                <li>ability 2</li>
-               </ul>    
+
+        if (pokeman.abilities.length > 1 && pokeman.types.length > 1) {
+            return `<div class="container">
+        <div class="pokemons-card"> 
+            <h3 id="pokemon-name">${pokeman.name}</h3>
+            <img src= ${pokeman.sprites.other["official-artwork"].front_default} alt="${pokeman.name}" width="100px">
+            <div class="abilities"> 
+                <p class="abilities-names">Abilities</p>
+                <ul>
+                
+                    <li>${pokeman.abilities[0].ability.name}</li>
+                    <li>${pokeman.abilities[1].ability.name}</li>
+                </ul>    
             </div>
-            <div id="types">                      
-                <label for="type">Type</label> 
-                <ul id="ability">
-                    <li>type 1</li>
-                    <li>type 2</li>
-                </ul>   
+            <div class="types"> 
+                <p class="types-names">Types</p>
+                <ul>
+                    <li>${pokeman.types[0].type.name}</li>
+                    <li>${pokeman.types[1].type.name}</li>
+                </ul>    
             </div>
-        </div>            
-    </div>`
+        </div>
+        </div>`
+            
+        } else {
+            return `<div class="container">
+        <div class="pokemons-card"> 
+            <h3 id="pokemon-name">${pokeman.name}</h3>
+            <img src= ${pokeman.sprites.other["official-artwork"].front_default} alt="${pokeman.name}" width="100px">
+            <div class="abilities"> 
+                <p class="abilities-names">Abilities</p>
+                <ul>              
+                    <li>${pokeman.abilities[0].ability.name}</li>
+                </ul>    
+            </div>
+            <div class="types"> 
+                <p class="types-names">Types</p>
+                <ul>
+                    <li>${pokeman.types[0].type.name}</li>
+                </ul>    
+            </div>
+        </div>
+        </div>`
+            
+        }
+        
     }).join('');
     
     cards.innerHTML = card;
