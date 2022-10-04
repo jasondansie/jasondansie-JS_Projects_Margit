@@ -22,15 +22,18 @@ getPokemonData = (data) => {
     let url = "";
 
     data.forEach(pokemon => { 
-        
+    
         if (pokemon.url.includes("species")) {        
 
-            url = "https://pokeapi.co/api/v2/pokemon/" + pokemon.name
-            console.log("url:  ", url)
+            const paragraph = pokemon.url;          
+            const regex = /[0-9]/g;
+            const idArray = pokemon.url.match(regex);        
+            const id = idArray[1] + idArray[2] + idArray[3];
+            
+            url = "https://pokeapi.co/api/v2/pokemon/" + id
         } else {
             url = pokemon.url
-        }
-         
+        }        
         
         fetch(url).then(response => response.json()).then((pokeData) => {
             pokemanData.push(pokeData);          
@@ -54,9 +57,7 @@ searchPokedex = (e) => {
         displayPokeCards(pokemanData);
     }
     else{
-        displayPokeCards(pokeman);
-        singlePokeman = pokeman;
-        
+        displayPokeCards(pokeman);    
     }
 }
 
