@@ -24,8 +24,7 @@ getPokemonData = (data) => {
     data.forEach(pokemon => { 
     
         if (pokemon.url.includes("species")) {        
-
-            const paragraph = pokemon.url;          
+         
             const regex = /[0-9]/g;
             const idArray = pokemon.url.match(regex);        
             const id = idArray[1] + idArray[2] + idArray[3];
