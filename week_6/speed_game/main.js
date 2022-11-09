@@ -146,7 +146,7 @@ function openModal() {
         setModaltext("Wow your doing awesome.");
     }
     else if(score < 16){
-        setModaltext("Yor going to make the top score.");
+        setModaltext("Your going to make the top score.");
     }
     else if(score < 21){
         setModaltext("Wow amazing skills.");
